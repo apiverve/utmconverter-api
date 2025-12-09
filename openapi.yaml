@@ -1,0 +1,118 @@
+openapi: 3.0.4
+info:
+  title: UTM Coordinate Converter
+  description: UTM Coordinate Converter provides bidirectional conversion between UTM (Universal Transverse Mercator) coordinates and latitude/longitude using WGS84 datum.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.9
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+- url: https://api.apiverve.com/
+paths:
+  /v1/utmconverter:
+    get:
+      summary: Convert Coordinates
+      description: UTM Coordinate Converter provides bidirectional conversion between UTM (Universal Transverse Mercator) coordinates and latitude/longitude using WGS84 datum.
+      operationId: utmconverter
+      parameters:
+      - name: direction
+        default: to_utm
+        in: query
+        schema:
+          type: string
+        required: false
+        description: Conversion direction (to_utm or from_utm)
+        example: to_utm
+      - name: latitude
+        in: query
+        schema:
+          type: number
+        required: false
+        description: Latitude (-90 to 90) - required for to_utm
+        example: '40.7128'
+      - name: longitude
+        in: query
+        schema:
+          type: number
+        required: false
+        description: Longitude (-180 to 180) - required for to_utm
+        example: '-74.0060'
+      - name: zone
+        in: query
+        schema:
+          type: number
+        required: false
+        description: UTM zone (1-60) - required for from_utm
+        example: '18'
+      - name: easting
+        in: query
+        schema:
+          type: number
+        required: false
+        description: UTM easting - required for from_utm
+        example: '585628'
+      - name: northing
+        in: query
+        schema:
+          type: number
+        required: false
+        description: UTM northing - required from_utm
+        example: '4511322'
+      - name: hemisphere
+        in: query
+        schema:
+          type: string
+        required: false
+        description: Hemisphere (N or S) - required for from_utm
+        example: N
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: string
+                    description: data
+              example:
+                status: ok
+                error: 
+                data:
+                  conversion: lat/lon to UTM
+                  input:
+                    latitude: 40.7128
+                    longitude: -74.006
+                  output:
+                    zone: 18
+                    hemisphere: N
+                    easting: 583959.37
+                    northing: 4507351
+                  formatted: 18N 583959E 4507351N
+                  datum: WGS84
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occured, try again later
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+- api_key: []
