@@ -17,11 +17,7 @@ const api = new utmconverterAPI({
 var query = {
   direction: "to_utm",
   latitude: 40.7128,
-  longitude: -74.0060,
-  zone: 18,
-  easting: 585628,
-  northing: 4511322,
-  hemisphere: "N"
+  longitude: -74.006
 };
 
 // Make the API request using callback
