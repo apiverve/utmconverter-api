@@ -12,18 +12,8 @@ public class BasicExample {
         UTMCoordinateConverterAPIClient client = new UTMCoordinateConverterAPIClient("YOUR_API_KEY_HERE");
 
         try {
-            // Query parameters
-            Map&lt;String, Object&gt; parameters &#x3D; new HashMap&lt;&gt;();
-        parameters.put(&quot;direction&quot;, &quot;to_utm&quot;);
-        parameters.put(&quot;latitude&quot;, 40.7128);
-        parameters.put(&quot;longitude&quot;, -74.0060);
-        parameters.put(&quot;zone&quot;, 18);
-        parameters.put(&quot;easting&quot;, 585628);
-        parameters.put(&quot;northing&quot;, 4511322);
-        parameters.put(&quot;hemisphere&quot;, &quot;N&quot;);
-
-            // Execute the API request
-            APIResponse response = client.execute(parameters);
+            // Execute the API request (no parameters required)
+            APIResponse response = client.execute(null);
 
             // Check if the request was successful
             if (response.isSuccess()) {
