@@ -17,14 +17,11 @@ def call_utmconverter_api():
     Make a GET request to the UTM Coordinate Converter API
     """
     try:
-        # Query parameters
-        params &#x3D; {&#x27;direction&#x27;: &#x27;to_utm&#x27;, &#x27;latitude&#x27;: 40.7128, &#x27;longitude&#x27;: -74.0060, &#x27;zone&#x27;: 18, &#x27;easting&#x27;: 585628, &#x27;northing&#x27;: 4511322, &#x27;hemisphere&#x27;: &#x27;N&#x27;}
-
         headers = {
             'x-api-key': API_KEY
         }
 
-        response = requests.get(API_URL, headers=headers, params=params)
+        response = requests.get(API_URL, headers=headers)
 
         # Raise exception for HTTP errors
         response.raise_for_status()
