@@ -44,7 +44,11 @@ from apiverve_utmcoordinateconverter.apiClient import UtmconverterAPIClient
 # Initialize the client with your APIVerve API key
 api = UtmconverterAPIClient("[YOUR_API_KEY]")
 
-query = { "direction": "to_utm", "latitude": 40.7128, "longitude": -74.006 }
+query = {
+    "direction": "to_utm",
+    "latitude": 40.7128,
+    "longitude": -74.006
+}
 
 try:
     # Make the API call
@@ -82,7 +86,11 @@ Using the API client, you can perform requests to the API.
 ###### Define Query
 
 ```python
-query = { "direction": "to_utm", "latitude": 40.7128, "longitude": -74.006 }
+query = {
+    "direction": "to_utm",
+    "latitude": 40.7128,
+    "longitude": -74.006
+}
 ```
 
 ###### Simple Request
@@ -132,7 +140,11 @@ from apiverve_utmcoordinateconverter.apiClient import UtmconverterAPIClient, Utm
 
 api = UtmconverterAPIClient("[YOUR_API_KEY]")
 
-query = { "direction": "to_utm", "latitude": 40.7128, "longitude": -74.006 }
+query = {
+    "direction": "to_utm",
+    "latitude": 40.7128,
+    "longitude": -74.006
+}
 
 try:
     result = api.execute(query)
@@ -153,7 +165,11 @@ from apiverve_utmcoordinateconverter.apiClient import UtmconverterAPIClient, Utm
 
 api = UtmconverterAPIClient("[YOUR_API_KEY]")
 
-query = { "direction": "to_utm", "latitude": 40.7128, "longitude": -74.006 }
+query = {
+    "direction": "to_utm",
+    "latitude": 40.7128,
+    "longitude": -74.006
+}
 
 try:
     result = api.execute(query)
@@ -187,7 +203,11 @@ The client supports the context manager protocol for automatic resource cleanup:
 ```python
 from apiverve_utmcoordinateconverter.apiClient import UtmconverterAPIClient, UtmconverterAPIClientError
 
-query = { "direction": "to_utm", "latitude": 40.7128, "longitude": -74.006 }
+query = {
+    "direction": "to_utm",
+    "latitude": 40.7128,
+    "longitude": -74.006
+}
 
 # Using context manager ensures proper cleanup
 with UtmconverterAPIClient("[YOUR_API_KEY]") as api:
@@ -213,7 +233,11 @@ from apiverve_utmcoordinateconverter.apiClient import UtmconverterAPIClient
 # Enable debug mode
 api = UtmconverterAPIClient("[YOUR_API_KEY]", debug=True)
 
-query = { "direction": "to_utm", "latitude": 40.7128, "longitude": -74.006 }
+query = {
+    "direction": "to_utm",
+    "latitude": 40.7128,
+    "longitude": -74.006
+}
 
 # Debug information will be printed to console
 result = api.execute(query)
@@ -228,8 +252,13 @@ from apiverve_utmcoordinateconverter.apiClient import UtmconverterAPIClient
 
 api = UtmconverterAPIClient("[YOUR_API_KEY]")
 
+query = {
+    "direction": "to_utm",
+    "latitude": 40.7128,
+    "longitude": -74.006
+}
+
 try:
-    query = { "direction": "to_utm", "latitude": 40.7128, "longitude": -74.006 }
     result = api.execute(query)
     print(result)
 finally:
