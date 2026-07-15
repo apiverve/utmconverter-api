@@ -30,7 +30,13 @@ The UTM Coordinate Converter API provides a simple, reliable way to integrate ut
 ```javascript
 async function callUTMCoordinateConverterAPI() {
     try {
-        const response = await fetch('https://api.apiverve.com/v1/utmconverter', {
+        const params = new URLSearchParams({
+            direction: 'to_utm',
+            latitude: 40.7128,
+            longitude: -74.006
+        });
+
+        const response = await fetch(`https://api.apiverve.com/v1/utmconverter?${params}`, {
             method: 'GET',
             headers: {
                 'x-api-key': 'YOUR_API_KEY_HERE'
@@ -50,7 +56,7 @@ callUTMCoordinateConverterAPI();
 ### Using cURL
 
 ```bash
-curl -X GET "https://api.apiverve.com/v1/utmconverter?param=value" \
+curl -X GET "https://api.apiverve.com/v1/utmconverter?direction=to_utm&latitude=40.7128&longitude=-74.006" \
   -H "x-api-key: YOUR_API_KEY_HERE"
 ```
 
@@ -150,7 +156,7 @@ go get github.com/apiverve/utmconverter-api/go
 |---------|---------|
 | **Multi-language SDKs** | Native packages for JavaScript, Python, C#, Go, and Android |
 | **Simple Integration** | Single API key authentication, consistent response format |
-| **Production Ready** | 99.9% uptime, fast response times, used by thousands of developers |
+| **Production Ready** | 99.9% uptime SLA, served from 24 global regions |
 | **Comprehensive Docs** | Full examples, OpenAPI spec, and dedicated support |
 
 ---
@@ -169,7 +175,7 @@ go get github.com/apiverve/utmconverter-api/go
 The UTM Coordinate Converter API is commonly used for:
 
 - **Web Applications** - Add utm coordinate converter features to your frontend or backend
-- **Mobile Apps** - Native SDKs for iOS and Android development
+- **Mobile Apps** - Native SDKs for Android development
 - **Automation** - Integrate with n8n, Zapier, or custom workflows
 - **SaaS Products** - Enhance your product with utm coordinate converter capabilities
 - **Data Pipelines** - Process and analyze data at scale
