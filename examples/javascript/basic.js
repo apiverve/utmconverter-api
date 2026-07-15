@@ -13,7 +13,14 @@ const API_URL = 'https://api.apiverve.com/v1/utmconverter';
  */
 async function callUTMCoordinateConverterAPI() {
   try {
-    const response = await fetch(API_URL, {
+    // Query parameters
+    const params &#x3D; new URLSearchParams({
+            direction: &#x27;to_utm&#x27;,
+            latitude: 40.7128,
+            longitude: -74.006
+        });
+
+    const response = await fetch(`${API_URL}?${params}`, {
       method: 'GET',
       headers: {
         'x-api-key': API_KEY
