@@ -20,12 +20,12 @@ namespace APIVerve.API.UTMCoordinateConverter
         /// Latitude (-90 to 90)
         /// </summary>
         [JsonProperty("latitude")]
-        public string Latitude { get; set; }
+        public double Latitude { get; set; }
 
         /// <summary>
         /// Longitude (-180 to 180)
         /// </summary>
         [JsonProperty("longitude")]
-        public string Longitude { get; set; }
+        public double Longitude { get; set; }
     }
 }
