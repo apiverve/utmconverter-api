@@ -25,6 +25,9 @@ namespace APIVerve.API.UTMCoordinateConverter
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
@@ -48,24 +51,36 @@ namespace APIVerve.API.UTMCoordinateConverter
     public partial class Input
     {
         [JsonProperty("latitude")]
-        public double Latitude { get; set; }
+        public double? Latitude { get; set; }
 
         [JsonProperty("longitude")]
-        public double Longitude { get; set; }
+        public double? Longitude { get; set; }
     }
 
     public partial class Output
     {
         [JsonProperty("zone")]
-        public long Zone { get; set; }
+        public long? Zone { get; set; }
 
         [JsonProperty("hemisphere")]
         public string Hemisphere { get; set; }
 
         [JsonProperty("easting")]
-        public double Easting { get; set; }
+        public double? Easting { get; set; }
 
         [JsonProperty("northing")]
-        public long Northing { get; set; }
+        public long? Northing { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
