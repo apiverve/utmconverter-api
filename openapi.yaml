@@ -19,7 +19,7 @@ servers:
 paths:
   /v1/utmconverter:
     get:
-      summary: Lat/Long to UTM
+      summary: UTM Coordinate Converter
       description: Convert latitude/longitude coordinates to UTM format
       operationId: utmconverter
       parameters:
