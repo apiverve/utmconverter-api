@@ -4,6 +4,6 @@ require_relative "apiverve_utmconverter/client"
 
 module APIVerve
   module Utmconverter
-    VERSION = "1.2.4"
+    VERSION = "1.2.5"
   end
 end
